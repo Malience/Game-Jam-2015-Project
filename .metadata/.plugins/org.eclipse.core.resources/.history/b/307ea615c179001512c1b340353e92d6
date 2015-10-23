@@ -1,0 +1,13 @@
+package game.world;
+
+import com.base.engine.core.Game;
+
+public class World 
+{
+	public static Game game;
+	
+	public static void New()
+	{
+		
+	}
+}

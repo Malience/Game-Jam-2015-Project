@@ -1,0 +1,8 @@
+package game.world;
+
+import com.base.engine.core.Game;
+
+public class MainGame extends Game
+{
+
+}

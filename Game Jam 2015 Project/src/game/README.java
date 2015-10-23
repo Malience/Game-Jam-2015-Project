@@ -1,0 +1,3 @@
+package game;public class README {}
+
+//DO NOT DELETE THIS CLASS UNTIL SOMETHING ELSE IS IN THIS PACKAGE!!!

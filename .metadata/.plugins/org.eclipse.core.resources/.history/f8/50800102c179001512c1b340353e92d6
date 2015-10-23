@@ -1,0 +1,11 @@
+package game.world;
+
+public class World 
+{
+	public static Game game;
+	
+	public static void New()
+	{
+		
+	}
+}

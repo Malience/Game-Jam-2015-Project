@@ -1,0 +1,31 @@
+package game;
+
+import java.util.ArrayList;
+
+import com.base.engine.components.MeshRenderer;
+import com.base.engine.core.GameObject;
+import com.base.engine.rendering.Texture;
+
+public abstract class GObject 
+{
+	public int x,y,z;
+	public ArrayList<GObject> children;
+	
+	public GObject(int x, int y,int z)
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		children = null;
+	}
+	
+	public GameObject convert()
+	{
+		GameObject object = new GameObject();
+		if(this.getClass().isInstance(Renderable.class))
+		{
+			Renderable o = (Renderable) object;
+			object.addComponent(new MeshRenderer(new Texture(o.getTexture()), new Mesh(o.getMesh())));
+		}
+	}
+}

@@ -1,0 +1,20 @@
+package com.base.game;
+
+import com.base.engine.core.CoreEngine;
+import com.base.engine.core.Vector3f;
+import com.base.engine.physics.*;
+
+public class Main
+{
+	
+	
+	public static void main(String[] args)
+	{
+		//Testing.testAll();
+		
+		
+		CoreEngine engine = new CoreEngine(800, 600, "3D Game Engine", 60, new TestGame());
+//		engine.createWindow("3D Game Engine");
+//		engine.start();
+	}
+}
