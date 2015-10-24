@@ -28,9 +28,9 @@ public class RenderingEngine extends MappedValues
 
 	private HashMap<String, Integer> samplerMap;
 	private Shader forwardAmbient;
-//	private Shader shadowShader;
+	private Shader shadowShader;
 	
-//	public static DirectionalLight dlight;
+	public static DirectionalLight dlight;
 	
 	public RenderingEngine()
 	{
@@ -42,7 +42,7 @@ public class RenderingEngine extends MappedValues
 		addVector3f("ambient", new Vector3f(0.1f,0.1f,0.1f));
 		
 		forwardAmbient = new Shader("forward-ambient");
-//		shadowShader = new Shader("shadowShader");
+		shadowShader = new Shader("shadowShader");
 		
 		glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
 
@@ -64,34 +64,34 @@ public class RenderingEngine extends MappedValues
 	public void render(GameObject object)
 	{
 		
-//		int framebuffer = glGenFramebuffers();
-//		
-//		glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-//		
-//		int depthTexture = glGenTextures();
-//		glBindTexture(GL_TEXTURE_2D, depthTexture);
-//		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
-//		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-//		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-//		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-//		
-//		glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthTexture, 0);
-//		
-//		glDrawBuffer(GL_NONE);
-//		
-//		Vector3f lightInvDir = dlight.getDirection();
-//		
-//		Matrix4f depthProjectionMatrix = new Matrix4f().initOrthographic(-10, 10, -10, 10, -10, 20);
-//		Matrix4f depthViewMatrix = new Transform().getLookAtRotation(lightInvDir, new Vector3f(0,1,0)).toRotationMatrix();
-//		//Matrix4f depthModelMatrix = new Matrix4f().initIdentity(); //Doesn't matter
-//		Matrix4f depthMVP = depthProjectionMatrix.mul(depthViewMatrix);
-//		dlight.setMVP(depthMVP);
-//		
-//		activeLight = dlight;
-//		object.renderAll(shadowShader, this);
-//		
-//		samplerMap.put("shadowMap", depthTexture);
+		int framebuffer = glGenFramebuffers();
+		
+		glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+		
+		int depthTexture = glGenTextures();
+		glBindTexture(GL_TEXTURE_2D, depthTexture);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		
+		glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthTexture, 0);
+		
+		glDrawBuffer(GL_NONE);
+		
+		Vector3f lightInvDir = dlight.getDirection();
+		
+		Matrix4f depthProjectionMatrix = new Matrix4f().initOrthographic(-10, 10, -10, 10, -10, 20);
+		Matrix4f depthViewMatrix = new Transform().getLookAtRotation(lightInvDir, new Vector3f(0,1,0)).toRotationMatrix();
+		//Matrix4f depthModelMatrix = new Matrix4f().initIdentity(); //Doesn't matter
+		Matrix4f depthMVP = depthProjectionMatrix.mul(depthViewMatrix);
+		dlight.setMVP(depthMVP);
+		
+		activeLight = dlight;
+		object.renderAll(shadowShader, this);
+		
+		samplerMap.put("shadowMap", depthTexture);
 		
 		
 		
@@ -116,9 +116,9 @@ public class RenderingEngine extends MappedValues
 		glDepthMask(true);
 		glDisable(GL_BLEND);
 		
-//		glDeleteTextures(depthTexture);
-//		glDeleteBuffers(depthTexture);
-//		glDeleteBuffers(framebuffer);
+		glDeleteTextures(depthTexture);
+		glDeleteBuffers(depthTexture);
+		glDeleteBuffers(frameBuffer);
 	}
 	
 

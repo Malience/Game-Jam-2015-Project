@@ -136,14 +136,14 @@ public class Shader
 				{
 					setUniformf(uniformName, material.getFloat(uniformName));
 				}
-//				else if(uniformName.equals("depthMVP"))
-//				{ 
-//					setUniform(uniformName, renderingEngine.getActiveLight().getMVP());
-//				}
-//				else if(uniformName.equals("depthBiasMVP"))
-//				{ 
-//					setUniform(uniformName, renderingEngine.getActiveLight().getMVP().mul(new Matrix4f().biasMatrix()));
-//				}
+				else if(uniformName.equals("depthMVP"))
+				{ 
+					setUniform(uniformName, renderingEngine.getActiveLight().getMVP());
+				}
+				else if(uniformName.equals("depthBiasMVP"))
+				{ 
+					setUniform(uniformName, renderingEngine.getActiveLight().getMVP().mul(new Matrix4f().biasMatrix()));
+				}
 				else
 					throw new IllegalArgumentException(uniformName + " is not a supported type in Material");
 			}
