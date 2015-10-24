@@ -28,9 +28,9 @@ public class RenderingEngine extends MappedValues
 
 	private HashMap<String, Integer> samplerMap;
 	private Shader forwardAmbient;
-//	private Shader shadowShader;
+	private Shader shadowShader;
 	
-//	public static DirectionalLight dlight;
+	public static DirectionalLight dlight;
 	
 	public RenderingEngine()
 	{
@@ -42,7 +42,7 @@ public class RenderingEngine extends MappedValues
 		addVector3f("ambient", new Vector3f(0.1f,0.1f,0.1f));
 		
 		forwardAmbient = new Shader("forward-ambient");
-//		shadowShader = new Shader("shadowShader");
+		shadowShader = new Shader("shadowShader");
 		
 		glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
 

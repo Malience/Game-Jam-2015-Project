@@ -14,5 +14,5 @@ uniform DirectionalLight R_directionalLight;
 
 void main()
 {
-    fragColor = texture2D(diffuse, texCoord0.xy) * calcDirectionalLight(R_directionalLight, normalize(normal0), worldPos0);
+    fragColor = texture2D(diffuse, texCoord0.xy) * calcDirectionalLight(R_directionalLight, normalize(normal0), worldPos0) * visibility;
 }

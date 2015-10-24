@@ -8,7 +8,6 @@ import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.opengl.GL;
 
-import com.base.engine.physics.PhysicsEngine;
 import com.base.engine.rendering.RenderingEngine;
 import com.base.engine.rendering.Window;
 
@@ -17,7 +16,6 @@ public class CoreEngine {
 	private long MainWindow;
 	private Game game;
 	private RenderingEngine renderingEngine;
-	private PhysicsEngine physicsEngine;
 	private int width;
 	private int height;
 	private String name;
