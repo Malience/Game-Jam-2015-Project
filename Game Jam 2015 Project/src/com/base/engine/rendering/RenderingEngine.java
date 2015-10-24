@@ -15,6 +15,7 @@ import java.util.HashMap;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL12.*;
 import static org.lwjgl.opengl.GL14.*;
+import static org.lwjgl.opengl.GL15.glDeleteBuffers;
 import static org.lwjgl.opengl.GL30.*;
 import static org.lwjgl.opengl.GL32.*;
 
@@ -114,6 +115,10 @@ public class RenderingEngine extends MappedValues
 		glDepthFunc(GL_LESS);
 		glDepthMask(true);
 		glDisable(GL_BLEND);
+		
+		glDeleteTextures(depthTexture);
+		glDeleteBuffers(depthTexture);
+		glDeleteBuffers(framebuffer);
 	}
 	
 
