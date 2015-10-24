@@ -108,6 +108,7 @@ public class CoreEngine {
 				if(frameCounter >= 1.0)
 				{
 					System.out.println(frames);
+					if(frames<2) stop();
 					frames = 0;
 					frameCounter = 0;
 				}	
